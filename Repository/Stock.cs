@@ -25,18 +25,20 @@ namespace AnswerKing.Repository
             Category special = new Category(2, "Specials");
             Category drinks = new Category(3, "Drinks");
             Category puddings = new Category(4, "Desserts");
+            Category summer = new Category(5, "Summer Special");
 
             categories.Add(saver);
             categories.Add(special);
             categories.Add(drinks);
             categories.Add(puddings);
+            categories.Add(summer);
 
             Item burger = new Item(1, "Burgers", 1.5m, new List<Category> { saver }, 2);
             Item fries = new Item(2, "Fries", 1.0m, new List<Category> { saver }, 4);
-            Item coke = new Item(3, "Coke", 1.0m, new List<Category> { drinks}, 4);
-            Item cake = new Item(4, "Cake", 1.0m, new List<Category> { puddings }, 4);
+            Item coke = new Item(3, "Coke's", 1.0m, new List<Category> { drinks}, 4);
+            Item cake = new Item(4, "Cakes", 1.0m, new List<Category> { puddings }, 4);
             Item bbqburger = new Item(5, "BBQ Burgers", 2, new List<Category> { special }, 1);
-            Item nuggets = new Item(6, "nuggets", 3.0m, new List<Category>() , 4);
+            Item nuggets = new Item(6, "Nuggets", 3.0m, new List<Category>() , 4);
 
 
             items.Add(burger);
