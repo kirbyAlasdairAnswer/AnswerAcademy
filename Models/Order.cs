@@ -15,11 +15,11 @@ namespace AnswerKing.Models
         public int Id { get; set; }
         public List<OrderLine> OrderLines { get; set; }
 
-        public double Total
+        public decimal Total
         {
             get
             {
-                double tally = 0;
+                decimal tally = 0;
                 foreach (OrderLine oLine in OrderLines)
                 {
                     tally += oLine.Price;

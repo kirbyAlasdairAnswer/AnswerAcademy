@@ -47,7 +47,7 @@ namespace AnswerKing.Services
             Console.WriteLine("What is the Name?");
             string name = Console.ReadLine();
             Console.WriteLine("What is the Price?");
-            double price = double.Parse(Console.ReadLine());
+            decimal price = decimal.Parse(Console.ReadLine());
             bool cats = true;
             List<Category> categories = new List<Category>();
             while (cats)
@@ -114,7 +114,7 @@ namespace AnswerKing.Services
             {
                 try
                 {
-                    double price = double.Parse(priceIn);
+                    decimal price = decimal.Parse(priceIn);
                     existing.Price = price;
                 } catch
                 {
@@ -246,7 +246,7 @@ namespace AnswerKing.Services
         {
             var item = getItemId(id);
 
-            if ( item.Stock < number)
+            if ( item.Stock < number || number < 0)
             {
                 return false;
             }

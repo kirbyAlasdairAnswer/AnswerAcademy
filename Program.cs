@@ -212,26 +212,33 @@ namespace AnswerKing
                 {
                     Console.WriteLine("");
                     Console.WriteLine("And how many?");
-                    int amount = int.Parse(Console.ReadLine());
-
-                    if (_itemService.purchaseItem(chosen.Id, amount))
+                    try
                     {
-                        var exists = _order.OrderLines.FirstOrDefault(line => line.Item.Name == choice);
-                        if (exists != null)
+                        int amount = int.Parse(Console.ReadLine());
+
+                        if (_itemService.purchaseItem(chosen.Id, amount))
                         {
-                            exists.Amount += amount;
+                            var exists = _order.OrderLines.FirstOrDefault(line => line.Item.Name == choice);
+                            if (exists != null)
+                            {
+                                exists.Amount += amount;
+                                Console.WriteLine($"{amount} {choice} have been added to your order");
+                                Console.WriteLine($"Your total is {_order.Total.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-gb"))}");
+                            }
+
+                            var orderLine = new OrderLine(chosen, amount);
                             Console.WriteLine($"{amount} {choice} have been added to your order");
+                            _order.addLine(orderLine);
                             Console.WriteLine($"Your total is {_order.Total.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-gb"))}");
                         }
-
-                        var orderLine = new OrderLine(chosen, amount);
-                        Console.WriteLine($"{amount} {choice} have been added to your order");
-                        _order.addLine(orderLine);
-                        Console.WriteLine($"Your total is {_order.Total.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-gb"))}");
-                    } else
+                        else
+                        {
+                            Console.WriteLine($"Sorry, there is not enough {chosen.Name} in stock, the maximum order is {chosen.Stock}");
+                        }
+                    } catch
                     {
-                        Console.WriteLine($"Sorry, there is not enough {chosen.Name} in stock, the maximum order is {chosen.Stock}");
-                    }
+                        Console.WriteLine("Sorry, that was not a valid selection");
+                    }                    
                 }
             }
         }

@@ -31,12 +31,12 @@ namespace AnswerKing.Repository
             categories.Add(drinks);
             categories.Add(puddings);
 
-            Item burger = new Item(1, "Burgers", 1.5, new List<Category> { saver }, 2);
-            Item fries = new Item(2, "Fries", 1.0, new List<Category> { saver }, 4);
-            Item coke = new Item(3, "Coke", 1.0, new List<Category> { drinks}, 4);
-            Item cake = new Item(4, "Cake", 1.0, new List<Category> { puddings }, 4);
+            Item burger = new Item(1, "Burgers", 1.5m, new List<Category> { saver }, 2);
+            Item fries = new Item(2, "Fries", 1.0m, new List<Category> { saver }, 4);
+            Item coke = new Item(3, "Coke", 1.0m, new List<Category> { drinks}, 4);
+            Item cake = new Item(4, "Cake", 1.0m, new List<Category> { puddings }, 4);
             Item bbqburger = new Item(5, "BBQ Burgers", 2, new List<Category> { special }, 1);
-            Item nuggets = new Item(6, "nuggets", 3.0, new List<Category>() , 4);
+            Item nuggets = new Item(6, "nuggets", 3.0m, new List<Category>() , 4);
 
 
             items.Add(burger);

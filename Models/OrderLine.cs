@@ -14,7 +14,7 @@ namespace AnswerKing.Models
 
         public Item Item { get; set; }
         public int Amount { get; set; }
-        public double Price
+        public decimal Price
         {
             get
             {
