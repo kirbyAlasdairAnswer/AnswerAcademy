@@ -1,0 +1,14 @@
+C:\Users\AlasdairKirby\source\repos\AnswerKing\obj\Debug\netcoreapp3.1\AnswerKing.csproj.AssemblyReference.cache
+C:\Users\AlasdairKirby\source\repos\AnswerKing\obj\Debug\netcoreapp3.1\AnswerKing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AlasdairKirby\source\repos\AnswerKing\obj\Debug\netcoreapp3.1\AnswerKing.AssemblyInfoInputs.cache
+C:\Users\AlasdairKirby\source\repos\AnswerKing\obj\Debug\netcoreapp3.1\AnswerKing.AssemblyInfo.cs
+C:\Users\AlasdairKirby\source\repos\AnswerKing\obj\Debug\netcoreapp3.1\AnswerKing.csproj.CoreCompileInputs.cache
+C:\Users\AlasdairKirby\source\repos\AnswerKing\bin\Debug\netcoreapp3.1\AnswerKing.exe
+C:\Users\AlasdairKirby\source\repos\AnswerKing\bin\Debug\netcoreapp3.1\AnswerKing.deps.json
+C:\Users\AlasdairKirby\source\repos\AnswerKing\bin\Debug\netcoreapp3.1\AnswerKing.runtimeconfig.json
+C:\Users\AlasdairKirby\source\repos\AnswerKing\bin\Debug\netcoreapp3.1\AnswerKing.runtimeconfig.dev.json
+C:\Users\AlasdairKirby\source\repos\AnswerKing\bin\Debug\netcoreapp3.1\AnswerKing.dll
+C:\Users\AlasdairKirby\source\repos\AnswerKing\bin\Debug\netcoreapp3.1\AnswerKing.pdb
+C:\Users\AlasdairKirby\source\repos\AnswerKing\obj\Debug\netcoreapp3.1\AnswerKing.dll
+C:\Users\AlasdairKirby\source\repos\AnswerKing\obj\Debug\netcoreapp3.1\AnswerKing.pdb
+C:\Users\AlasdairKirby\source\repos\AnswerKing\obj\Debug\netcoreapp3.1\AnswerKing.genruntimeconfig.cache
