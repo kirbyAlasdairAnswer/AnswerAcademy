@@ -44,24 +44,24 @@ namespace AnswerKing.Services
         public void addItem()
         {
             int id = Stock.GetNewItemId();
-            Console.WriteLine("What is the Name?");
+            Console.WriteLine("    What is the Name?");
             string name = Console.ReadLine();
-            Console.WriteLine("What is the Price?");
-            double price = double.Parse(Console.ReadLine());
+            Console.WriteLine("    What is the Price?");
+            decimal price = decimal.Parse(Console.ReadLine());
             bool cats = true;
             List<Category> categories = new List<Category>();
             while (cats)
             {
-                Console.WriteLine("What Categories does it belong to?");
+                Console.WriteLine("    What Categories does it belong to?");
                 int count = 1;
                 foreach (Category cat in Stock.categories)
                 {
-                    Console.WriteLine($"{count}. {cat.Name}");
+                    Console.WriteLine($"    {count}. {cat.Name}");
                     count++;
                 }
-                Console.WriteLine($"{count}. Add a category");
+                Console.WriteLine($"    {count}. Add a category");
                 count++;
-                Console.WriteLine($"{count}. None/No more");
+                Console.WriteLine($"    {count}. None/No more");
 
                 try
                 {
@@ -78,10 +78,10 @@ namespace AnswerKing.Services
                     }
                 } catch
                 {
-                    Console.WriteLine("Sorry, not a valid choice");
+                    Console.WriteLine("    Sorry, not a valid choice");
                 }               
             }
-            Console.WriteLine("How many are in stock?");
+            Console.WriteLine("    How many are in stock?");
             int stock = int.Parse(Console.ReadLine());
             Item item = new Item(id, name, price, categories, stock);
             Stock.items.Add(item);
@@ -89,41 +89,41 @@ namespace AnswerKing.Services
 
         public void modifyItem()
         {
-            Console.WriteLine("The current items are:");
+            Console.WriteLine("    The current items are:");
             foreach(Item existingItem in Stock.items)
             {
                 Console.WriteLine(existingItem.Name);
             }
-            Console.WriteLine("Please input the item to change");
+            Console.WriteLine("    Please input the item to change");
             Item existing = getItemName(Console.ReadLine());
 
-            Console.WriteLine("You may now change the item, input new value when prompted or hit 'enter' to skip");
+            Console.WriteLine("    You may now change the item, input new value when prompted or hit 'enter' to skip");
             Console.WriteLine("");
 
-            Console.WriteLine($"The current Name is, {existing.Name}");
-            Console.WriteLine("What is the new Name?");
+            Console.WriteLine($"    The current Name is, {existing.Name}");
+            Console.WriteLine("    What is the new Name?");
             string nameIn = Console.ReadLine();
             if (nameIn != "")
             {
                 existing.Name = nameIn;
             }
-            Console.WriteLine($"The current Price is, {existing.Price}");
-            Console.WriteLine("What is the new Price?");
+            Console.WriteLine($"    The current Price is, {existing.Price}");
+            Console.WriteLine("    What is the new Price?");
             string priceIn = Console.ReadLine();
             if (priceIn != "")
             {
                 try
                 {
-                    double price = double.Parse(priceIn);
+                    decimal price = decimal.Parse(priceIn);
                     existing.Price = price;
                 } catch
                 {
-                    Console.WriteLine("Invalid Price");
+                    Console.WriteLine("    Invalid Price");
                 }
 
             }
             
-            Console.WriteLine($"The current Categories are: ");
+            Console.WriteLine($"    The current Categories are: ");
             foreach (Category c in existing.Categories)
             {
                 Console.WriteLine(c.Name);
@@ -133,16 +133,16 @@ namespace AnswerKing.Services
             List<Category> categories = new List<Category>();
             while (cats)
             {
-                Console.WriteLine("What Categories does it now belong to?");
+                Console.WriteLine("    What Categories does it now belong to?");
                 int count = 1;
                 foreach (Category cat in Stock.categories)
                 {
-                    Console.WriteLine($"{count}. {cat.Name}");
+                    Console.WriteLine($"    {count}. {cat.Name}");
                     count++;
                 }
-                Console.WriteLine($"{count}. Add a category");
+                Console.WriteLine($"    {count}. Add a category");
                 count++;
-                Console.WriteLine($"{count}. None/No more");
+                Console.WriteLine($"    {count}. None/No more");
 
                 string catIn = Console.ReadLine();
                 if (catIn != "")
@@ -162,7 +162,7 @@ namespace AnswerKing.Services
                     }
                     catch
                     {
-                        Console.WriteLine("Sorry, not a valid choice");
+                        Console.WriteLine("    Sorry, not a valid choice");
                     }
                 } else
                 {
@@ -171,8 +171,8 @@ namespace AnswerKing.Services
                 }
             }
             existing.Categories = categories;
-            Console.WriteLine($"The current Stock is, {existing.Stock}");
-            Console.WriteLine("How many are now in stock?");
+            Console.WriteLine($"    The current Stock is, {existing.Stock}");
+            Console.WriteLine("    How many are now in stock?");
             string stockIn = Console.ReadLine();
             if (stockIn != "")
             {
@@ -181,7 +181,7 @@ namespace AnswerKing.Services
                     existing.Stock = int.Parse(stockIn);
                 } catch
                 {
-                    Console.WriteLine("Sorry, this is not a valid input");
+                    Console.WriteLine("    Sorry, this is not a valid input");
                 }
             }
         }
@@ -208,30 +208,34 @@ namespace AnswerKing.Services
 
         public void removeItem()
         {
-            Console.WriteLine("The current items are:");
+            Console.WriteLine("    The current items are:");
             foreach (Item existingItem in Stock.items)
             {
                 Console.WriteLine("");
-                Console.WriteLine(existingItem.Name);
+                Console.WriteLine($"    {existingItem.Name}");
                 Console.WriteLine("");
             }
 
-            Console.WriteLine("Please input the item to change");
+            Console.WriteLine("    Please input the item to change");
             Item existing = getItemName(Console.ReadLine());
 
-            try
+            if (existing == null) Console.WriteLine("    Invalid Selection");
+            else
             {
-                Stock.items.Remove(existing);
-                Console.WriteLine("");
-                Console.WriteLine("Item successfully removed");
-                Console.WriteLine("");
-            }
-            catch
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Invalid Item chosen");
-                Console.WriteLine("");
-            }
+                try
+                {
+                    Stock.items.Remove(existing);
+                    Console.WriteLine("");
+                    Console.WriteLine("    Item successfully removed");
+                    Console.WriteLine("");
+                }
+                catch
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("    Invalid Item chosen");
+                    Console.WriteLine("");
+                }
+            }            
         }
 
         public void removeItemCategory(Category category)
@@ -246,7 +250,7 @@ namespace AnswerKing.Services
         {
             var item = getItemId(id);
 
-            if ( item.Stock < number)
+            if ( item.Stock < number || number < 0)
             {
                 return false;
             }
